@@ -56,6 +56,9 @@
               <arguments>
                 <argument>-Djboss.http.port=8090</argument>
               </arguments>
+              <jvmArguments>
+                <arg>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n</arg>
+              </jvmArguments>
             </configuration>
           </plugin>
           <plugin>
