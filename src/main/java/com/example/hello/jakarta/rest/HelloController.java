@@ -1,4 +1,4 @@
-package com.example.hello.jakarta;
+package com.example.hello.jakarta.rest;
 
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
