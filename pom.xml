@@ -7,11 +7,10 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
-    <version.wildfly>25.0.0.Final</version.wildfly>
+    <version.wildfly>26.1.2.Final</version.wildfly>
     <version.bootable.jar>7.0.1.Final</version.bootable.jar>
     <failOnMissingWebXml>false</failOnMissingWebXml>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.release>17</maven.compiler.release>
     <final.name>hello-jakarta</final.name>
   </properties>
   <dependencies>
@@ -24,7 +23,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>hello-jakarta</finalName>
+    <finalName>${final.name}></finalName>
   </build>
   <profiles>
     <profile>
@@ -56,15 +55,12 @@
               <arguments>
                 <argument>-Djboss.http.port=8090</argument>
               </arguments>
-              <jvmArguments>
-                <arg>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n</arg>
-              </jvmArguments>
             </configuration>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version>
+            <version>3.3.2</version>
             <configuration>
               <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
