@@ -1,4 +1,4 @@
-package com.example.hello.jakarta.rest.cdi;
+package com.example.hello.jakarta.rest.cdi.scopes;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

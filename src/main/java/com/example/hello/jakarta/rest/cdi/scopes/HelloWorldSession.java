@@ -1,11 +1,12 @@
-package com.example.hello.jakarta.rest.cdi;
+package com.example.hello.jakarta.rest.cdi.scopes;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@RequestScoped
-public class HelloWorldRequest {
+@SessionScoped
+public class HelloWorldSession implements Serializable {
 
     private String message;
 
