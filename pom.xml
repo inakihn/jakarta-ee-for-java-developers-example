@@ -14,14 +14,27 @@
         <maven.compiler.release>17</maven.compiler.release>
         <final.name>hello-jakarta</final.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.microprofile>4.1</version.microprofile>
+        <version.slf4j>2.0.3</version.slf4j>
+        <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>4.1</version>
+            <version>${version.microprofile}</version>
             <type>pom</type>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.slf4j</groupId>
+            <artifactId>slf4j-jboss-logging</artifactId>
+            <version>${version.org.jboss.logging.slf4j-jboss-logging}</version>
         </dependency>
     </dependencies>
     <build>
@@ -53,6 +66,7 @@
                             <layers>
                                 <layer>jaxrs</layer>
                                 <layer>microprofile-config</layer>
+                                <layer>logging</layer>
                             </layers>
                             <debug>true</debug>
                             <debug-port>8787</debug-port>
