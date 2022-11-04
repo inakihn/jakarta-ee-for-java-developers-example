@@ -1,4 +1,4 @@
-package com.example.hello.jakarta.config;
+package com.example.hello.jakarta.rest.config;
 
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
