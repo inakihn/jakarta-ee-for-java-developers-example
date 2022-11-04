@@ -1,5 +1,7 @@
 package com.example.hello.jakarta.rest.hello;
 
+import com.example.hello.jakarta.util.Logged;
+
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +14,9 @@ import javax.ws.rs.Path;
 public class HelloController {
 
     @GET
+    @Logged
     public String sayHello() {
+
         return "Hello World";
     }
 }
