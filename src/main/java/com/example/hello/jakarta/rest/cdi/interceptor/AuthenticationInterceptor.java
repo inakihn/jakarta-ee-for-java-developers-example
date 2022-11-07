@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @Interceptor
 @Authentication
-@Priority(Interceptor.Priority.LIBRARY_BEFORE + 40)
+@Priority(Interceptor.Priority.LIBRARY_BEFORE + 2)
 public class AuthenticationInterceptor {
 
     private static final Logger log = LoggerFactory.getLogger(AuthenticationInterceptor.class);

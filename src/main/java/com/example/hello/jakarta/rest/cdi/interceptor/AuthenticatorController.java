@@ -24,7 +24,8 @@ public class AuthenticatorController {
     @GET
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response appendMessage(@QueryParam("username") String username, @QueryParam("password") String password) {
+    public Response appendMessage(@QueryParam("username") String username,
+                                  @QueryParam("password") String password) {
 
         if (!authenticationDatasource.validate(username, password)) {
             Map<String, Object> errorResponse = new HashMap<>();

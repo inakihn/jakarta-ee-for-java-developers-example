@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class SecuredService {
 
     @Authentication
+    @Auditoring
     public String generateText(String username) {
         return "Welcome " + username;
     }
