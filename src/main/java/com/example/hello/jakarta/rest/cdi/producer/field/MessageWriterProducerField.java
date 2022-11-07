@@ -1,8 +1,8 @@
 package com.example.hello.jakarta.rest.cdi.producer.field;
 
 import com.example.hello.jakarta.rest.cdi.producer.method.MessageWriter;
+import jakarta.enterprise.inject.Produces;
 
-import javax.enterprise.inject.Produces;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;

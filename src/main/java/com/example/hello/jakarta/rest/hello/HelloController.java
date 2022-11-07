@@ -1,8 +1,8 @@
 package com.example.hello.jakarta.rest.hello;
 
 import com.example.hello.jakarta.util.Logged;
+import jakarta.inject.Singleton;
 
-import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 

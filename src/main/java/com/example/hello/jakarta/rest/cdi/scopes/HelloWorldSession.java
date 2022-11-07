@@ -1,7 +1,8 @@
 package com.example.hello.jakarta.rest.cdi.scopes;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.SessionScoped;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 

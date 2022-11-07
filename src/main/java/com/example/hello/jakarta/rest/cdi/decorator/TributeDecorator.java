@@ -1,9 +1,10 @@
 package com.example.hello.jakarta.rest.cdi.decorator;
 
-import javax.annotation.Priority;
-import javax.decorator.Decorator;
-import javax.decorator.Delegate;
-import javax.inject.Inject;
+import jakarta.annotation.Priority;
+import jakarta.decorator.Decorator;
+import jakarta.decorator.Delegate;
+import jakarta.inject.Inject;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 

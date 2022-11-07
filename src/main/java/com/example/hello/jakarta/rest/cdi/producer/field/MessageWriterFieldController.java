@@ -1,9 +1,9 @@
 package com.example.hello.jakarta.rest.cdi.producer.field;
 
 import com.example.hello.jakarta.rest.cdi.producer.method.MessageWriter;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;

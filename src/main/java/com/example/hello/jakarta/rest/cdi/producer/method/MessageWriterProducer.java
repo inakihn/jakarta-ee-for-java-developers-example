@@ -1,7 +1,8 @@
 package com.example.hello.jakarta.rest.cdi.producer.method;
 
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
+import jakarta.enterprise.inject.Disposes;
+import jakarta.enterprise.inject.Produces;
+
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;

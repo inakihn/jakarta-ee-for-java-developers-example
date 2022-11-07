@@ -1,6 +1,7 @@
 package com.example.hello.jakarta.rest.cdi.interceptor;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Objects;

@@ -1,6 +1,7 @@
 package com.example.hello.jakarta.rest.cdi.decorator;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
