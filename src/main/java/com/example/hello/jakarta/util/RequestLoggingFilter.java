@@ -13,7 +13,6 @@ public class RequestLoggingFilter implements ContainerRequestFilter {
 
     private static final Logger log = LoggerFactory.getLogger(RequestLoggingFilter.class);
 
-
     @Override
     public void filter(final ContainerRequestContext requestContext) {
         // example to log the invoked path
