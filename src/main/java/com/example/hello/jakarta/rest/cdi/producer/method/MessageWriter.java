@@ -1,4 +1,4 @@
-package com.example.hello.jakarta.rest.cdi.producer;
+package com.example.hello.jakarta.rest.cdi.producer.method;
 
 import java.io.*;
 import java.nio.file.Files;

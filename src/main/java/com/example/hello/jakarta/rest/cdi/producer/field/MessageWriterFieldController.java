@@ -1,4 +1,6 @@
-package com.example.hello.jakarta.rest.cdi.producer;
+package com.example.hello.jakarta.rest.cdi.producer.field;
+
+import com.example.hello.jakarta.rest.cdi.producer.method.MessageWriter;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -11,12 +13,12 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.Objects;
 
-@Path("/messages")
+@Path("/messages/field")
 @Singleton
-public class MessageWriterController {
+public class MessageWriterFieldController {
 
     @Inject
-    @Message
+    @MessageField
     private MessageWriter messageWriter;
 
     @GET
