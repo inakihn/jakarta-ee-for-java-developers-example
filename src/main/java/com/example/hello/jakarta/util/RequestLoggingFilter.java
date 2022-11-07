@@ -9,9 +9,9 @@ import javax.ws.rs.ext.Provider;
 
 @Logged
 @Provider
-public class MyRequestLoggingFilter implements ContainerRequestFilter {
+public class RequestLoggingFilter implements ContainerRequestFilter {
 
-    private static final Logger log = LoggerFactory.getLogger(MyRequestLoggingFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(RequestLoggingFilter.class);
 
 
     @Override
@@ -19,5 +19,6 @@ public class MyRequestLoggingFilter implements ContainerRequestFilter {
         // example to log the invoked path
         final String invokedPath = requestContext.getUriInfo().getPath();
         log.info("Request to path {} has been made", invokedPath);
+        log.debug("some debug message");
     }
 }

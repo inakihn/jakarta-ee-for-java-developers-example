@@ -27,14 +27,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${version.slf4j}</version>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logging</artifactId>
             <version>${version.org.jboss.logging.slf4j-jboss-logging}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -52,14 +48,16 @@
                         <groupId>org.wildfly.plugins</groupId>
                         <artifactId>wildfly-jar-maven-plugin</artifactId>
                         <version>${version.bootable.jar}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>package</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                         <configuration>
+                            <cli-sessions>
+                                <cli-session>
+                                    <script-files>
+                                        <script>scripts/logging.cli</script>
+                                    </script-files>
+                                    <properties-file>scripts/cli.properties</properties-file>
+                                    <resolve-expressions>true</resolve-expressions>
+                                </cli-session>
+                            </cli-sessions>
                             <feature-pack-location>
                                 wildfly@maven(org.jboss.universe:community-universe)#${version.wildfly}
                             </feature-pack-location>
@@ -74,6 +72,13 @@
                                 <argument>-Djboss.http.port=8090</argument>
                             </arguments>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
