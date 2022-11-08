@@ -3,26 +3,26 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.example</groupId>
     <artifactId>hello-jakarta</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
+
+    <name>hello-jakarta</name>
+
     <properties>
-        <version.wildfly>26.1.2.Final</version.wildfly>
-        <version.bootable.jar>7.0.1.Final</version.bootable.jar>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <version.wildfly>27.0.0.Alpha5</version.wildfly>
+        <version.bootable.jar>8.0.1.Final</version.bootable.jar>
         <maven.compiler.release>17</maven.compiler.release>
-        <final.name>hello-jakarta</final.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.microprofile>4.1</version.microprofile>
-        <version.slf4j>2.0.3</version.slf4j>
-        <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
+        <version.slf4j-jboss-logging>1.2.1.Final</version.slf4j-jboss-logging>
     </properties>
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>9.1.0</version>
+            <version>10.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -34,12 +34,12 @@
         <dependency>
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logging</artifactId>
-            <version>${version.org.jboss.logging.slf4j-jboss-logging}</version>
+            <version>${version.slf4j-jboss-logging}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
-        <finalName>${final.name}></finalName>
+        <finalName>${project.name}</finalName>
     </build>
     <profiles>
         <profile>
@@ -87,39 +87,19 @@
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.10.1</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-war-plugin</artifactId>
                         <version>3.3.2</version>
                         <configuration>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
-                    </plugin>
                 </plugins>
             </build>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.spec.javax.ws.rs</groupId>
-                    <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-                    <version>1.0.1.Final</version>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
-            <repositories>
-                <repository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Public Maven Repository Group</name>
-                    <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-                </repository>
-                <repository>
-                    <id>Red Hat GA</id>
-                    <name>Red Hat GA</name>
-                    <url>https://maven.repository.redhat.com/ga/</url>
-                </repository>
-            </repositories>
         </profile>
     </profiles>
 </project>
