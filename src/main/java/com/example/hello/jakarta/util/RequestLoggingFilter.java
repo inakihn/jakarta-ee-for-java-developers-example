@@ -17,6 +17,6 @@ public class RequestLoggingFilter implements ContainerRequestFilter {
         // example to log the invoked path
         final String invokedPath = requestContext.getUriInfo().getPath();
         log.info("Request to path {} has been made", invokedPath);
-        log.debug("some debug message");
+//        log.debug("some debug message");
     }
 }
