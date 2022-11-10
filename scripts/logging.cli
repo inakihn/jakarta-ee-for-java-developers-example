@@ -7,7 +7,8 @@
 /subsystem=logging/console-handler=CONSOLE:write-attribute(name=level,value=ALL)
 
 # Change specific log level for a specific class
-/subsystem=logging/logger=com.example.hello.jakarta:add(level=DEBUG)
+/subsystem=logging/logger=com.example.hello.jakarta:add(level=INFO)
+/subsystem=logging/logger=com.example.hello.jakarta.rest.users:add(level=INFO)
 
 # Json formatting
 #/subsystem=logging/json-formatter=json-formatter:add(exception-output-type=formatted, pretty-print=false, meta-data={version="1"}, key-overrides={timestamp="@timestamp"})
