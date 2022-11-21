@@ -22,6 +22,15 @@ public class HelloController {
         log.debug("hello debug");
         log.info("hello info");
 
-        return "Hello World";
+        return "Hello awesome World";
+    }
+
+    @GET
+    @Path("/foo")
+    public String sayFoo() {
+        log.debug("hello debug");
+        log.info("hello info");
+
+        return "Hello foo World";
     }
 }

@@ -33,10 +33,15 @@ Also, a simple Hello world endpoint is created, have a look at the class **Hello
 
 More information on MicroProfile can be found [here](https://microprofile.io/)
 
-
 ### Config
 
-Configuration of your application parameters. Specification [here](https://microprofile.io/project/eclipse/microprofile-config)
+Configuration of your application parameters.
+Specification [here](https://microprofile.io/project/eclipse/microprofile-config)
 
-The example class **ConfigTestController** shows you how to inject a configuration parameter and how you can retrieve it programmatically.
+The example class **ConfigTestController** shows you how to inject a configuration parameter and how you can retrieve it
+programmatically.
+
+### Datasources for the postgresql configuration bootable jar are taken from:
+
+https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md
 

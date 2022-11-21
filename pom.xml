@@ -14,6 +14,7 @@
     <properties>
         <version.wildfly>27.0.0.Final</version.wildfly>
         <version.bootable.jar>8.0.1.Final</version.bootable.jar>
+        <version.wildfly-datasources-galleon-pack>3.0.0.Final</version.wildfly-datasources-galleon-pack>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.slf4j-jboss-logging>1.2.1.Final</version.slf4j-jboss-logging>
@@ -69,9 +70,16 @@
                                     <resolve-expressions>true</resolve-expressions>
                                 </cli-session>
                             </cli-sessions>
-                            <feature-pack-location>
-                                wildfly@maven(org.jboss.universe:community-universe)#${version.wildfly}
-                            </feature-pack-location>
+                            <feature-packs>
+                                <feature-pack>
+                                    <location>org.wildfly:wildfly-galleon-pack:${version.wildfly}</location>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-datasources-galleon-pack</artifactId>
+                                    <version>${version.wildfly-datasources-galleon-pack}</version>
+                                </feature-pack>
+                            </feature-packs>
                             <layers>
                                 <!-- If no layers are added, the default is to load all layers -->
                                 <!-- See https://docs.wildfly.org/21/Bootable_Guide.html#wildfly_layers -->
@@ -79,7 +87,12 @@
                                 <!--                                <layer>datasources</layer>-->
                                 <!--                                <layer>microprofile-config</layer>-->
                                 <!--                                <layer>logging</layer>-->
+                                <layer>cloud-server</layer>
+                                <layer>postgresql-datasource</layer>
                             </layers>
+                            <excluded-layers>
+                                <layer>deployment-scanner</layer>
+                            </excluded-layers>
                             <debug>true</debug>
                             <debug-port>8787</debug-port>
                             <arguments>
