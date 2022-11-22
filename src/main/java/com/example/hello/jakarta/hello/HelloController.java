@@ -31,6 +31,16 @@ public class HelloController {
         log.debug("hello debug");
         log.info("hello info");
 
-        return "Hello foo World";
+        int i = 0;
+
+        return "Hello mvmvmvmv World";
+    }
+
+
+    @GET
+    @Path("/bar")
+    public String sayBar() {
+
+        return "Hello bar World";
     }
 }
