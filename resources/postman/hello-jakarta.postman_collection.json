@@ -82,6 +82,42 @@
       ]
     },
     {
+      "name": "objectmapper",
+      "item": [
+        {
+          "name": "Objectmapper examples",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}/{{api}}/objectmapper",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{api}}",
+                "objectmapper"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "users",
       "item": [
         {
@@ -227,10 +263,10 @@
       ]
     },
     {
-      "name": "objectmapper",
+      "name": "emails",
       "item": [
         {
-          "name": "Objectmapper examples",
+          "name": "Send email",
           "event": [
             {
               "listen": "test",
@@ -245,16 +281,26 @@
             }
           ],
           "request": {
-            "method": "GET",
+            "method": "POST",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"{{$randomFirstName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"employeeType\": \"DEVELOPER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "{{host}}/{{api}}/objectmapper",
+              "raw": "{{host}}/{{api}}/emails/{{idUser}}",
               "host": [
                 "{{host}}"
               ],
               "path": [
                 "{{api}}",
-                "objectmapper"
+                "emails",
+                "{{idUser}}"
               ]
             }
           },
