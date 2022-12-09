@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URI;
+import java.util.Optional;
 
 @Path("/users")
 @Singleton
@@ -18,6 +19,8 @@ public class UserResource {
 
     private static final Logger log = LoggerFactory.getLogger(UserResource.class);
 
+    @Inject
+    private UserInMemDatasource userInMemDatasource;
 
     /**
      * Parameters can be sent to Jakarta RESTful like this
@@ -29,15 +32,39 @@ public class UserResource {
      * Matrix: Using @MatrixParam annotation.
      */
 
-    @Inject
-    private UserInMemDatasource userInMemDatasource;
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Logged
     public Response list() throws JsonProcessingException {
         log.debug("a debug message");
         log.info("an info message");
+        return Response.ok(userInMemDatasource.listAll()).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findById(@PathParam("id") String id) {
+        Optional<User> user = userInMemDatasource.findById(id);
+        if (!user.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok(user.get()).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    /* The query parameter has a way to define a default value in case the query parameter is not informed
+    @DefaultValue(“rhuan@test.com”)
+     */
+    public Response list(@QueryParam("email") String email) {
+        if (email != null) {
+            return Response
+                    .ok(userInMemDatasource.listByEmail(email))
+                    .build();
+        }
+
         return Response.ok(userInMemDatasource.listAll()).build();
     }
 

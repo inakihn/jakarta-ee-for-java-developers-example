@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 @ApplicationScoped
 public class UserInMemDatasource {
 
-    private Map<Long, User> users;
+    private Map<String, User> users;
 
     @PostConstruct
     public void init() {
         users = new HashMap<>();
     }
 
-    public Optional<User> findById(Long id) {
+    public Optional<User> findById(String id) {
         return Optional.ofNullable(users.get(id));
     }
 
@@ -25,7 +25,7 @@ public class UserInMemDatasource {
             String id = UUID.randomUUID().toString();
             user.setId(id);
         }
-        users.put(Long.valueOf(user.getId()), user);
+        users.put(user.getId(), user);
         return user;
     }
 
