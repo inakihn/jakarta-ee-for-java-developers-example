@@ -16,12 +16,12 @@ public class EmailResource {
     private EmailService emailService;
 
     @POST
-    @Path("/{idUser}")
-    public Response send(@PathParam("idUser") String idUser,
+    @Path("/{id}")
+    public Response send(@PathParam("id") String userId,
                          @DefaultValue("Hello") @FormParam("subject") String subject,
                          @DefaultValue("Hello! Welcome!") @FormParam("message") String message) {
 
-        User user = userService.findById(idUser);
+        User user = userService.findById(userId);
         if (user == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

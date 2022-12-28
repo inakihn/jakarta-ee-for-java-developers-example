@@ -13,6 +13,9 @@ public class UserService {
         User user = client
                 .target(TARGET_SERVICE + "/" + id).request(MediaType.APPLICATION_JSON)
                 .get(User.class);
+
+        client.close();
+
         return user;
     }
 }
